@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0b0e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="description"
+      content="Prototype minimal Three.js : Porsche 992 GT3 R, éclairage studio et ombres portées."
+    />
+    <title>Prototype — Modèle 3D, lumière & ombre</title>
+  </head>
+  <body>
+    <canvas id="stage" aria-label="Scène 3D : modèle, éclairage et ombres"></canvas>
+
+    <header class="hud hud-top">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-name">AUTO3D</span>
+        <span class="brand-tag">prototype</span>
+      </div>
+      <h1>Lumière &amp; ombre</h1>
+      <p>Porsche 992 GT3 R — Three.js, un seul modèle, un vrai soleil.</p>
+      <a class="back-link" href="/">Application complète →</a>
+    </header>
+
+    <div class="controls" role="group" aria-label="Réglages de la scène">
+      <label class="control">
+        <span class="control-label">
+          Angle du soleil
+          <output id="sun-angle-value" for="sun-angle">135°</output>
+        </span>
+        <input id="sun-angle" type="range" min="0" max="360" step="1" value="135" />
+      </label>
+
+      <div class="control-row">
+        <label class="switch">
+          <input id="toggle-shadows" type="checkbox" checked />
+          <span class="track" aria-hidden="true"></span>
+          <span>Ombres</span>
+        </label>
+        <label class="switch">
+          <input id="toggle-rotate" type="checkbox" checked />
+          <span class="track" aria-hidden="true"></span>
+          <span>Rotation auto</span>
+        </label>
+        <label class="switch">
+          <input id="toggle-helpers" type="checkbox" />
+          <span class="track" aria-hidden="true"></span>
+          <span>Repères</span>
+        </label>
+      </div>
+    </div>
+
+    <p class="hint">Glisser : orbiter · Molette : zoom · Clic droit : déplacer</p>
+
+    <div id="loader" class="loader" role="status" aria-live="polite">
+      <div class="loader-card">
+        <span class="loader-title">Chargement du modèle…</span>
+        <div class="loader-track"><span id="loader-bar" class="loader-bar"></span></div>
+        <span id="loader-pct" class="loader-pct">0 %</span>
+      </div>
+    </div>
+
+    <div id="error" class="error" hidden>
+      <div class="loader-card">
+        <span class="loader-title">Modèle inaccessible</span>
+        <p>Le fichier <code>source/porsche_992_gt3_r.glb</code> n’a pas pu être chargé.</p>
+      </div>
+    </div>
+
+    <script type="module" src="/prototype/main.js"></script>
+  </body>
+</html>
